@@ -46,29 +46,36 @@ def get_matches_html():
     r = requests.get(paris_major_url, timeout=10)
     return BeautifulSoup(r.text, 'lxml')
 
-soup = get_matches_html()
-live = soup.find("div", id='live-scores-container')
-matches_table = live.find("div", class_='row')
-matches = matches_table.find_all('div', recursive=False) # Only find first level divs
-for m in matches:
-    try:
-        scoring_table = m.find('table')
-        if not scoring_table:
-            continue
-        table_sections = scoring_table.find_all('tr')
 
-        header_raw = table_sections[0].text.strip()
-        header = re.sub(r'\s+', ' ', header_raw)
-        summary_raw = table_sections[3].text.strip()
-        summary = re.sub(r'\s+', ' ', summary_raw).replace('MATCH STATS', '').strip()
-        team1 = table_sections[1]
-        team2 = table_sections[2]
-        score1 = get_team_score(team1)
-        score2 = get_team_score(team2)
-        print(f"{header} {summary}")
-        print(score1)
-        print(score2)
-        print()
-    except Exception as e:
-        print(f"An error occurred {e!r}")
+def parse_match(matches):
+    for m in matches:
+        try:
+            scoring_table = m.find('table')
+            if not scoring_table:
+                continue
+            table_sections = scoring_table.find_all('tr')
 
+            header_raw = table_sections[0].text.strip()
+            header = re.sub(r'\s+', ' ', header_raw)
+            summary_raw = table_sections[3].text.strip()
+            summary = re.sub(r'\s+', ' ', summary_raw).replace('MATCH STATS', '').strip()
+            team1 = table_sections[1]
+            team2 = table_sections[2]
+            score1 = get_team_score(team1)
+            score2 = get_team_score(team2)
+            print(f"{header} {summary}")
+            print(score1)
+            print(score2)
+            print()
+        except Exception as e:
+            print(f"An error occurred {e!r}")
+
+
+def parse_match_scores():
+    soup = get_matches_html()
+    live = soup.find("div", id='live-scores-container')
+    matches_table = live.find("div", class_='row')
+    matches = matches_table.find_all('div', recursive=False)  # Only find first level divs
+    parse_match(matches)
+
+parse_match_scores()
