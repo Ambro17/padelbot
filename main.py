@@ -26,7 +26,7 @@ class TeamScore:
 
 def get_team_score(team_row):
     data = team_row.find_all('td')
-    team = data[0].text.strip().replace('\n', ' ').replace(' ' * 8, ' ')  # Improve style and (rank)
+    team = re.sub(r'\s+', ' ', data[0].text.strip())
     points_this_game = data[1].text.strip().replace('\n', ' ')
     first_set_games = data[2].text.strip().replace('\n', ' ')
     second_set_games = data[3].text.strip().replace('\n', ' ')
