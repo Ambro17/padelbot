@@ -3,6 +3,8 @@
 Get next tournament
 Get current match score
 """
+import re
+
 import requests
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
@@ -18,7 +20,7 @@ class TeamScore:
 
     def __str__(self):
         return (
-            f'{self.team}\n{self.game} {self.first_set} {self.second_set} {self.third_set}'
+            f'{self.team}\n{self.game} | {self.first_set} {self.second_set} {self.third_set}'
         )
 
 
@@ -54,16 +56,19 @@ for m in matches:
         if not scoring_table:
             continue
         table_sections = scoring_table.find_all('tr')
-        header = table_sections[0].text.strip().replace('\n', ' | ')
-        summary = table_sections[3].text.strip().replace('\n' * 4, ' ')
+
+        header_raw = table_sections[0].text.strip()
+        header = re.sub(r'\s+', ' ', header_raw)
+        summary_raw = table_sections[3].text.strip()
+        summary = re.sub(r'\s+', ' ', summary_raw).replace('MATCH STATS', '').strip()
         team1 = table_sections[1]
         team2 = table_sections[2]
         score1 = get_team_score(team1)
         score2 = get_team_score(team2)
-        print("MATCH")
+        print(f"{header} {summary}")
         print(score1)
         print(score2)
-        print("------")
+        print()
     except Exception as e:
         print(f"An error occurred {e!r}")
 
