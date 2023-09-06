@@ -11,6 +11,14 @@ from dataclasses import dataclass
 
 
 @dataclass
+class Match:
+    header: str
+    summary: str
+    score1: 'TeamScore'
+    score2: 'TeamScore'
+
+
+@dataclass
 class TeamScore:
     team: str
     game: str
@@ -20,7 +28,8 @@ class TeamScore:
 
     def __str__(self):
         return (
-            f'{self.team}\n{self.game} | {self.first_set} {self.second_set} {self.third_set}'
+            f'👥 {self.team}\n'
+            f'{self.game or "-"} | {self.first_set} {self.second_set} {self.third_set}'
         )
 
 
@@ -47,12 +56,11 @@ def get_matches_html():
     return BeautifulSoup(r.text, 'lxml')
 
 
-def parse_match(matches):
+def parse_matches(matches):
+    result = []
     for m in matches:
         try:
             scoring_table = m.find('table')
-            if not scoring_table:
-                continue
             table_sections = scoring_table.find_all('tr')
 
             header_raw = table_sections[0].text.strip()
@@ -63,19 +71,28 @@ def parse_match(matches):
             team2 = table_sections[2]
             score1 = get_team_score(team1)
             score2 = get_team_score(team2)
-            print(f"{header} {summary}")
-            print(score1)
-            print(score2)
-            print()
+            result.append(Match(header, summary, score1, score2))
         except Exception as e:
             print(f"An error occurred {e!r}")
 
+    return result
 
-def parse_match_scores():
+
+def get_current_matches():
     soup = get_matches_html()
     live = soup.find("div", id='live-scores-container')
     matches_table = live.find("div", class_='row')
     matches = matches_table.find_all('div', recursive=False)  # Only find first level divs
-    parse_match(matches)
+    matches = parse_matches(matches)
+    return matches
 
-parse_match_scores()
+
+def format_matches(matches: list[Match]) -> str:
+    return '\n'.join(
+        f"⛳ {match.header} {match.summary}\n{match.score1}\n{match.score2}\n"
+        for match in matches
+    ) or 'No hay partidos en curso'
+
+
+def get_current_matches_as_string():
+    return format_matches(get_current_matches())
