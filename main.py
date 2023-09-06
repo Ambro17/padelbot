@@ -3,11 +3,10 @@
 Get next tournament
 Get current match score
 """
+import requests
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
 
-with open("result.html", "r") as f:
-    soup = BeautifulSoup(f.read(), 'lxml')
 
 @dataclass
 class TeamScore:
@@ -40,8 +39,12 @@ def get_team_score(team_row):
     )
 
 
+def get_matches_html():
+    paris_major_url = 'https://widget.matchscorerlive.com/screen/tournamentlive/FIP-2023-3603?t=tol'
+    r = requests.get(paris_major_url, timeout=10)
+    return BeautifulSoup(r.text, 'lxml')
 
-
+soup = get_matches_html()
 live = soup.find("div", id='live-scores-container')
 matches_table = live.find("div", class_='row')
 matches = matches_table.find_all('div', recursive=False) # Only find first level divs
@@ -62,7 +65,5 @@ for m in matches:
         print(score2)
         print("------")
     except Exception as e:
-        breakpoint()
-        assert 1
-        assert 2
+        print(f"An error occurred {e!r}")
 
