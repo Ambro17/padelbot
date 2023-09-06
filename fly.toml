@@ -1,0 +1,8 @@
+app = "padelbot"
+primary_region = "eze"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[build]
+  builder = "paketobuildpacks/builder:base"
+
