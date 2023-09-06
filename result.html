@@ -1,0 +1,919 @@
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="author" content="Crionet">
+    <meta name="robots" content="noindex" />
+    <!-- Core Css Refs-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700;900&family=Varela+Round&family=Arimo:wght@400;700&display=swap2" rel="stylesheet">
+    
+        <link href="/css/custom/crionet-widgets_FIP_3603.css" rel="stylesheet" />
+    
+
+
+    <!-- Core JS refs -->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="/js/lib/ybq/ybq-core.min.js"></script>
+    
+<script type="text/javascript">!function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+crossOrigin: "anonymous", 
+cfg: { // Application Insights Configuration
+    connectionString: 'InstrumentationKey=b34cd12c-173f-44ee-a113-80ee23f54cdd;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/'
+}});</script></head>
+<body class="m-3">
+    <!-- Global settings -->
+
+
+
+
+
+<div id="live-scores-container">
+    
+<div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="row p-3">
+                    <div class="col-12 p-0">
+                        <table class="w-100 mb-3">
+
+                            <!-- Header -->
+                            <tr class="scorebox-header-live">
+                                <th class="text-left" colspan="4">
+                                    <span class="tournament-name">
+                                        <span>PISTE PHILIPPE-...</span>
+                                    </span>
+                                </th>
+                                <th colspan="4" class="round-name text-right">
+                                    <small>R32</small>
+                                </th>
+                            </tr>
+
+                            <!-- Team 1 -->
+                            <tr class="scorebox-sep-bottom">
+                                <td class="team">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>N.</span>
+                        <span class="">Rodriguez</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>M.</span>
+                        <span class="">Talavan</span>
+                            <small class="separator">(12)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>40</div>
+                                    </td>
+
+                                    <td class="set set-completed ">6</td>
+                                    <td class="set  ">5</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Team 2-->
+                            <tr>
+                                <td class="team" style="width:50%">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>E.</span>
+                        <span class="">Amatriain Armas</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/FRA.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>L.</span>
+                        <span class="">Godallier</span>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            <img src='/images/ballg.png' class='ballg'/>
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>30</div>
+                                    </td>
+                                    <td class="set set-completed set-lost">4</td>
+                                    <td class="set  set-lost">4</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Bottom line -->
+                            <tr class="summary">
+                                <td colspan="8">
+                                    <div class="live-status-summary d-flex justify-content-between align-items-center" style="padding: 0.1rem 0.3rem;">
+                                            <div>
+                                                <span>&#128337;</span>  
+                                                <span>01:29</span>
+                                                <span class="ml-4">Live match</span>
+                                            </div>
+                                            <!-- Button Trigger Modal -->
+                                            <a class="open" data-toggle="modal" data-target="#modalStats" data-id="WD030" data-year="2023" data-tid="3603" data-org="FIP">
+                                                MATCH STATS
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="row p-3">
+                    <div class="col-12 p-0">
+                        <table class="w-100 mb-3">
+
+                            <!-- Header -->
+                            <tr class="scorebox-header-live">
+                                <th class="text-left" colspan="4">
+                                    <span class="tournament-name">
+                                        <span>PISTE 7</span>
+                                    </span>
+                                </th>
+                                <th colspan="4" class="round-name text-right">
+                                    <small>R32</small>
+                                </th>
+                            </tr>
+
+                            <!-- Team 1 -->
+                            <tr class="scorebox-sep-bottom">
+                                <td class="team">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>A.</span>
+                        <span class="">Coello</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ARG.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>A.</span>
+                        <span class="">Tapia</span>
+                            <small class="separator">(3)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>0</div>
+                                    </td>
+
+                                    <td class="set set-completed set-lost">5</td>
+                                    <td class="set set-completed ">6</td>
+                                    <td class="set  ">2</td>
+                            </tr>
+
+                            <!-- Team 2-->
+                            <tr>
+                                <td class="team" style="width:50%">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>P.</span>
+                        <span class="">Garcia Rodrigo</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>I.</span>
+                        <span class="">Ramirez</span>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            <img src='/images/ballg.png' class='ballg'/>
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>0</div>
+                                    </td>
+                                    <td class="set set-completed ">7</td>
+                                    <td class="set set-completed set-lost">3</td>
+                                    <td class="set  ">2</td>
+                            </tr>
+
+                            <!-- Bottom line -->
+                            <tr class="summary">
+                                <td colspan="8">
+                                    <div class="live-status-summary d-flex justify-content-between align-items-center" style="padding: 0.1rem 0.3rem;">
+                                            <div>
+                                                <span>&#128337;</span>  
+                                                <span>01:37</span>
+                                                <span class="ml-4">Live match</span>
+                                            </div>
+                                            <!-- Button Trigger Modal -->
+                                            <a class="open" data-toggle="modal" data-target="#modalStats" data-id="MD024" data-year="2023" data-tid="3603" data-org="FIP">
+                                                MATCH STATS
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="row p-3">
+                    <div class="col-12 p-0">
+                        <table class="w-100 mb-3">
+
+                            <!-- Header -->
+                            <tr class="scorebox-header-live">
+                                <th class="text-left" colspan="4">
+                                    <span class="tournament-name">
+                                        <span>PISTE 6</span>
+                                    </span>
+                                </th>
+                                <th colspan="4" class="round-name text-right">
+                                    <small>R32</small>
+                                </th>
+                            </tr>
+
+                            <!-- Team 1 -->
+                            <tr class="scorebox-sep-bottom">
+                                <td class="team">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>J.</span>
+                        <span class="">Bautista</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>J.</span>
+                        <span class="">Munoz</span>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>15</div>
+                                    </td>
+
+                                    <td class="set  ">4</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Team 2-->
+                            <tr>
+                                <td class="team" style="width:50%">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>J.</span>
+                        <span class="">Jimenez Casas</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>L.</span>
+                        <span class="">Hernandez Quesada</span>
+                            <small class="separator">(Q)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            <img src='/images/ballg.png' class='ballg'/>
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>40</div>
+                                    </td>
+                                    <td class="set  set-lost">3</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Bottom line -->
+                            <tr class="summary">
+                                <td colspan="8">
+                                    <div class="live-status-summary d-flex justify-content-between align-items-center" style="padding: 0.1rem 0.3rem;">
+                                            <div>
+                                                <span>&#128337;</span>  
+                                                <span>00:32</span>
+                                                <span class="ml-4">Live match</span>
+                                            </div>
+                                            <!-- Button Trigger Modal -->
+                                            <a class="open" data-toggle="modal" data-target="#modalStats" data-id="MD022" data-year="2023" data-tid="3603" data-org="FIP">
+                                                MATCH STATS
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="row p-3">
+                    <div class="col-12 p-0">
+                        <table class="w-100 mb-3">
+
+                            <!-- Header -->
+                            <tr class="scorebox-header-live">
+                                <th class="text-left" colspan="4">
+                                    <span class="tournament-name">
+                                        <span>PISTE 4</span>
+                                    </span>
+                                </th>
+                                <th colspan="4" class="round-name text-right">
+                                    <small>R32</small>
+                                </th>
+                            </tr>
+
+                            <!-- Team 1 -->
+                            <tr class="scorebox-sep-bottom">
+                                <td class="team">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ARG.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>M.</span>
+                        <span class="">Sanchez</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ARG.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>L.</span>
+                        <span class="">Capra</span>
+                            <small class="separator">(8)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div></div>
+                                    </td>
+
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Team 2-->
+                            <tr>
+                                <td class="team" style="width:50%">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ARG.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>R.</span>
+                        <span class="">Ferreyra</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ITA.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>J.</span>
+                        <span class="">Manuel Restivo</span>
+                            <small class="separator">(Q)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div></div>
+                                    </td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Bottom line -->
+                            <tr class="summary">
+                                <td colspan="8">
+                                    <div class="live-status-summary d-flex justify-content-between align-items-center" style="padding: 0.1rem 0.3rem;">
+                                            <div>
+                                                <span>&#128337;</span>  
+                                                <span></span>
+                                                <span class="ml-4">On court</span>
+                                            </div>
+                                            <!-- Button Trigger Modal -->
+                                            <a class="open" data-toggle="modal" data-target="#modalStats" data-id="MD020" data-year="2023" data-tid="3603" data-org="FIP">
+                                                MATCH STATS
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="row p-3">
+                    <div class="col-12 p-0">
+                        <table class="w-100 mb-3">
+
+                            <!-- Header -->
+                            <tr class="scorebox-header-live">
+                                <th class="text-left" colspan="4">
+                                    <span class="tournament-name">
+                                        <span>PISTE 5</span>
+                                    </span>
+                                </th>
+                                <th colspan="4" class="round-name text-right">
+                                    <small>R32</small>
+                                </th>
+                            </tr>
+
+                            <!-- Team 1 -->
+                            <tr class="scorebox-sep-bottom">
+                                <td class="team">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>M.</span>
+                        <span class="">De La Fuente</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>M.</span>
+                        <span class="">Del Carmen Villalba Sanchez</span>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>0</div>
+                                    </td>
+
+                                    <td class="set  ">2</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Team 2-->
+                            <tr>
+                                <td class="team" style="width:50%">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>J.</span>
+                        <span class="">Castello Lopez</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ARG.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>A.</span>
+                        <span class="">Osoro Ulrich</span>
+                            <small class="separator">(8)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            <img src='/images/ballg.png' class='ballg'/>
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>0</div>
+                                    </td>
+                                    <td class="set  set-lost">1</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Bottom line -->
+                            <tr class="summary">
+                                <td colspan="8">
+                                    <div class="live-status-summary d-flex justify-content-between align-items-center" style="padding: 0.1rem 0.3rem;">
+                                            <div>
+                                                <span>&#128337;</span>  
+                                                <span>00:11</span>
+                                                <span class="ml-4">Live match</span>
+                                            </div>
+                                            <!-- Button Trigger Modal -->
+                                            <a class="open" data-toggle="modal" data-target="#modalStats" data-id="WD027" data-year="2023" data-tid="3603" data-org="FIP">
+                                                MATCH STATS
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="row p-3">
+                    <div class="col-12 p-0">
+                        <table class="w-100 mb-3">
+
+                            <!-- Header -->
+                            <tr class="scorebox-header-live">
+                                <th class="text-left" colspan="4">
+                                    <span class="tournament-name">
+                                        <span>PISTE 3</span>
+                                    </span>
+                                </th>
+                                <th colspan="4" class="round-name text-right">
+                                    <small>R32</small>
+                                </th>
+                            </tr>
+
+                            <!-- Team 1 -->
+                            <tr class="scorebox-sep-bottom">
+                                <td class="team">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>P.</span>
+                        <span class="">Maria Ribeiro</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>J.</span>
+                        <span class="">Polo Bautista</span>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>0</div>
+                                    </td>
+
+                                    <td class="set  set-lost">0</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Team 2-->
+                            <tr>
+                                <td class="team" style="width:50%">
+                                    <div class="d-flex justify-content-between align-items-center ml-2">
+                                        <div>
+                                            
+
+
+<div class="player-names">
+        <div class="double">
+                <div class="d-flex align-items-center mb-2">
+                    <div>
+                            <img class="flags" src="/images/flags/ESP.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>M.</span>
+                        <span class="">Guinart</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                            <img class="flags" src="/images/flags/SWE.jpg" style="box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);" />
+                    </div>
+                    <div class="ml-2  line-thin">
+                        <span>C.</span>
+                        <span class="">Navarro Bj&#xF6;rk</span>
+                            <small class="separator">(14)</small>
+                    </div>
+                </div>
+        </div>
+</div>
+
+                                        </div>
+                                        <div>
+                                            <img src='/images/ballg.png' class='ballg'/>
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td class="points">
+                                        <div>30</div>
+                                    </td>
+                                    <td class="set  ">4</td>
+                                    <td class="set set-lost ">-</td>
+                                    <td class="set set-lost ">-</td>
+                            </tr>
+
+                            <!-- Bottom line -->
+                            <tr class="summary">
+                                <td colspan="8">
+                                    <div class="live-status-summary d-flex justify-content-between align-items-center" style="padding: 0.1rem 0.3rem;">
+                                            <div>
+                                                <span>&#128337;</span>  
+                                                <span>00:16</span>
+                                                <span class="ml-4">Live match</span>
+                                            </div>
+                                            <!-- Button Trigger Modal -->
+                                            <a class="open" data-toggle="modal" data-target="#modalStats" data-id="WD025" data-year="2023" data-tid="3603" data-org="FIP">
+                                                MATCH STATS
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+</div>
+
+<!-- Modal MatchStats-->
+<div class="modal fade w-100" id="modalStats" tabindex="-1" role="dialog">
+    <div class="modal-dialog w-100" role="document">
+        <div class="modal-content w-100">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body w-100">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('img').bind('contextmenu', function (e) {
+        return false;
+    });
+</script>
+
+</div>
+
+<script>
+    function initiatePolling(refreshRateInSeconds) {
+        window.setInterval(function () {
+            window.setTimeout(function () {
+                var tournamentId = window.location.pathname.split('/').slice(-1)[0];
+                Ybq.post("/screen/lst/" + tournamentId + "?t=tol",
+                    {},
+                    function (markup) {
+                        $("#live-scores-container").html(markup);
+                    },
+                    function () {
+                        // ToDo: if we got a 501 (live reload disabled), stop polling
+                    });
+            },
+                400);
+        },
+            refreshRateInSeconds * 1000);
+    }
+</script>
+
+
+    <script type="text/javascript">
+        initiatePolling(60);
+    </script>
+
+
+    
+
+    <style>
+        .open:hover {
+            cursor: pointer;
+        }
+
+        #modalStats {
+            min-width: 50%;
+            margin: 0;
+        }
+
+            #modalStats .modal-content {
+                min-height: 50vh;
+            }
+
+            #ModalStats .modal-dialog {
+                margin: 0 auto !important;
+                min-width: 50%;
+                margin: 0;
+            }
+    </style>
+
+    <script>
+        $(".open").click(function () {
+            var matchId = $(this).data("id");
+            var year = $(this).data("year");
+            var tid = $(this).data("tid");
+            var org = $(this).data("org");
+            var culture = "en-US";
+            var q = "?t=tol".replace("amp;", "");
+            var url = "/screen/getmatchstats" + q;
+            $(".modal-body").html("");
+            Ybq.post(url,
+                {
+                    matchId: matchId,
+                    year: year,
+                    tournamentId: tid,
+                    organization: org,
+                },
+                function (partialview) {
+                    $(".modal-body").html(partialview);
+                    $('#modalStats').modal('show');
+                },
+                function () {
+                    $(".modal-body").html("An error occurred");
+                });
+        })
+    </script>
+</body>
+</html>
+
