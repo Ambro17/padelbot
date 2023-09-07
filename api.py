@@ -33,9 +33,19 @@ class TeamScore:
         )
 
 
+def get_player_names(element):
+    player_names_div = element.find('div', class_='player-names')
+    player_names_spans = player_names_div.select('td.team span')
+    # Remove name initial and empty spans
+    spans = [span for span in player_names_spans if span.text and '.' not in span.text]
+    # Surname 1 [Surname 2] / Surname A
+    players = " / ".join((spans[0].text, spans[1].text))
+    return players
+
+
 def get_team_score(team_row):
     data = team_row.find_all('td')
-    team = re.sub(r'\s+', ' ', data[0].text.strip())
+    team = get_player_names(data[0])
     points_this_game = data[1].text.strip().replace('\n', ' ')
     first_set_games = data[2].text.strip().replace('\n', ' ')
     second_set_games = data[3].text.strip().replace('\n', ' ')
@@ -96,3 +106,6 @@ def format_matches(matches: list[Match]) -> str:
 
 def get_current_matches_as_string():
     return format_matches(get_current_matches())
+
+if __name__ == "__main__":
+    print(get_current_matches_as_string())
