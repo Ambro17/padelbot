@@ -33,7 +33,7 @@ class TeamScore:
         )
 
 
-def get_player_names(element):
+def _get_player_names(element):
     player_names_div = element.find('div', class_='player-names')
     player_names_spans = player_names_div.select('td.team span')
     # Remove name initial and empty spans
@@ -43,9 +43,9 @@ def get_player_names(element):
     return players
 
 
-def get_team_score(team_row):
+def _get_team_score(team_row):
     data = team_row.find_all('td')
-    team = get_player_names(data[0])
+    team = _get_player_names(data[0])
     points_this_game = data[1].text.strip().replace('\n', ' ')
     first_set_games = data[2].text.strip().replace('\n', ' ')
     second_set_games = data[3].text.strip().replace('\n', ' ')
@@ -60,13 +60,13 @@ def get_team_score(team_row):
     )
 
 
-def get_matches_html():
+def _get_matches_html():
     paris_major_url = 'https://widget.matchscorerlive.com/screen/tournamentlive/FIP-2023-3603?t=tol'
     r = requests.get(paris_major_url, timeout=10)
     return BeautifulSoup(r.text, 'lxml')
 
 
-def parse_matches(matches):
+def _parse_matches(matches):
     result = []
     for m in matches:
         try:
@@ -79,8 +79,8 @@ def parse_matches(matches):
             summary = re.sub(r'\s+', ' ', summary_raw).replace('MATCH STATS', '').strip()
             team1 = table_sections[1]
             team2 = table_sections[2]
-            score1 = get_team_score(team1)
-            score2 = get_team_score(team2)
+            score1 = _get_team_score(team1)
+            score2 = _get_team_score(team2)
             result.append(Match(header, summary, score1, score2))
         except Exception as e:
             print(f"An error occurred {e!r}")
@@ -89,11 +89,11 @@ def parse_matches(matches):
 
 
 def get_current_matches():
-    soup = get_matches_html()
+    soup = _get_matches_html()
     live = soup.find("div", id='live-scores-container')
     matches_table = live.find("div", class_='row')
     matches = matches_table.find_all('div', recursive=False)  # Only find first level divs
-    matches = parse_matches(matches)
+    matches = _parse_matches(matches)
     return matches
 
 
