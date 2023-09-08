@@ -25,7 +25,12 @@ def send_action(action):
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hola, tipeá /live y te contestaré con los partidos en curso')
+    await update.message.reply_text(textwrap.dedent(f"""\
+     Hola, soy un bot al que le gusta el padel 
+     Podés escribir /live para ver los resultados de los partidos en curso
+     /horarios para ver los horarios de los partidos de hoy y
+     /ranking para conocer el ranking de Premier Padel
+     """))
 
 
 @send_action(ChatAction.TYPING)
@@ -73,11 +78,17 @@ async def ranking(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
 
 
+@send_action(ChatAction.TYPING)
+async def today(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_text('https://widget.matchscorerlive.com/screen/oopbyday/FIP-2023-3603/6?t=tol')
+
+
 app = ApplicationBuilder().token(os.environ['BOT_TOKEN']).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("live", get_matches))
 app.add_handler(CommandHandler("ranking", ranking))
+app.add_handler(CommandHandler("horarios", today))
 
 print("The bot is running")
 app.run_polling()
