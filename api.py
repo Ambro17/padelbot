@@ -66,7 +66,7 @@ def _get_matches_html():
     return BeautifulSoup(r.text, 'lxml')
 
 
-def _parse_matches(matches):
+def _parse_matches(matches) -> list[Match]:
     result = []
     for m in matches:
         try:

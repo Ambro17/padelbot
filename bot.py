@@ -3,7 +3,7 @@ import textwrap
 
 from telegram import Update
 from telegram.constants import ChatAction
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackContext
 from api import get_current_matches_as_string
 import requests
 
@@ -25,7 +25,7 @@ def send_action(action):
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hola, tipeá /live y te contestaré con los partidos en curso')
+    await update.message.reply_text(f'Hola, tipeá /live y te contestaré con los partidos en curso.')
 
 
 @send_action(ChatAction.TYPING)
@@ -73,11 +73,21 @@ async def ranking(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
 
 
+async def notify_new_matches(context: CallbackContext):
+    pass
+
+
 app = ApplicationBuilder().token(os.environ['BOT_TOKEN']).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("live", get_matches))
 app.add_handler(CommandHandler("ranking", ranking))
 
+MINUTE = 60
+cron_tasks = app.job_queue
+cron_tasks.run_repeating(notify_new_matches,
+                         interval=5 * MINUTE,
+                         first=50 * MINUTE,
+                         name='notify_new_matches')
 print("The bot is running")
 app.run_polling()
