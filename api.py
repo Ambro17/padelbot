@@ -47,9 +47,9 @@ def _get_team_score(team_row):
     data = team_row.find_all('td')
     team = _get_player_names(data[0])
     points_this_game = data[1].text.strip().replace('\n', ' ')
-    first_set_games = data[2].text.strip().replace('\n', ' ')
-    second_set_games = data[3].text.strip().replace('\n', ' ')
-    third_set_games = data[4].text.strip().replace('\n', ' ')
+    first_set_games = data[2].text.strip().replace('\n', ' ')[:1]  # Ignore tie break points won of defeated
+    second_set_games = data[3].text.strip().replace('\n', ' ')[:1]
+    third_set_games = data[4].text.strip().replace('\n', ' ')[:1]
 
     return TeamScore(
         team=team,
