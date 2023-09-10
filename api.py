@@ -88,6 +88,23 @@ def _parse_matches(matches):
     return result
 
 
+def get_current_schedule():
+    with open('schedule.html', 'r') as f:
+        soup = BeautifulSoup(f.read(), 'lxml')
+
+    courts = soup.find_all('table')
+    for court in courts:
+        court_name = court.find('span', class_='tournament-name').text.strip()
+        round_name = court.find('th', class_='round-name').text.strip()
+        print(f"{court_name} {round_name}")
+        team_rows = court.find_all('tr', class_='scorebox-sep-bottom')
+        for team_row in team_rows:
+            team = _get_team_score(team_row)
+            print(team)
+
+    return 1
+
+
 def get_current_matches():
     soup = _get_matches_html()
     live = soup.find("div", id='live-scores-container')
@@ -107,5 +124,6 @@ def format_matches(matches: list[Match]) -> str:
 def get_current_matches_as_string():
     return format_matches(get_current_matches())
 
+
 if __name__ == "__main__":
-    print(get_current_matches_as_string())
+    print(get_current_schedule())
