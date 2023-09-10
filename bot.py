@@ -80,7 +80,7 @@ async def ranking(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 @send_action(ChatAction.TYPING)
 async def today(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text('https://widget.matchscorerlive.com/screen/oopbyday/FIP-2023-3603/6?t=tol')
+    await update.message.reply_text('https://widget.matchscorerlive.com/screen/oopbyday/FIP-2023-3603/8?t=tol')
 
 
 app = ApplicationBuilder().token(os.environ['BOT_TOKEN']).build()
