@@ -53,26 +53,26 @@ async def ranking(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         textwrap.dedent(f"""\
         ```
         Jugador                 Pais Puntos \#
-        Alejandro Galan         ESP  11950  1
-        Juan Lebron             ESP  11950  1
-        Arturo Coello           ESP  11760  3
-        Martin Di Nenno         ARG  10665  4
-        Franco Stupaczuk        ARG  9360   5
-        Fernando Belasteguin    ARG  9230   6
-        Francisco Navarro       ESP  9070   7
-        Agustin Tapia           ARG  8030   8
-        Federico Chingotto      ARG  7710   9
-        Juan Tello              ARG  5670   10
-        Pablo Lima              BRA  5495   11
-        Carlos Daniel Gutierrez ARG  5140   12
-        Alejandro Ruiz          ESP  4895   13
-        Jeronimo Gonzalez       ESP  4505   14
-        Luciano Capra           ARG  3308   15
-        Maximiliano Sanchez     ARG  3308   15
-        Victor Ruiz             ESP  3035   17
-        Javier Garrido          ESP  2855   18
-        Jorge Nieto             ESP  2790   19
-        Lucas Bergamini         BRA  2755   20
+        Arturo Coello 			ESP  12910  1
+        Alejandro Galan 		ESP  12200  2
+        Juan Lebron 			ESP  12200  2
+        Martin Di Nenno 		ARG  10455  4
+        Francisco Navarro 		ESP  9970   5
+        Agustin Tapia 			ARG  9730   6
+        Franco Stupaczuk 		ARG  8950   7
+        Fernando Belasteguin 	ARG  8740   8
+        Federico Chingotto 		ARG  8610   9
+        Juan Tello 				ARG  5550   10
+        Pablo Lima 				BRA  5345   11
+        Carlos Daniel Gutierrez ARG  5020   12
+        Alejandro Ruiz 			ESP  4565   13
+        Jeronimo Gonzalez 		ESP  4175   14
+        Luciano Capra 			ARG  3498   15
+        Maximiliano Sanchez 	ARG  3498   15
+        Jorge Nieto 			ESP  3455   17
+        Victor Ruiz 			ESP  3350   18
+        Lucas Bergamini 		BRA  3070   19
+        Javier Garrido 			ESP  2950   20
         ```
         """)
     )
@@ -80,7 +80,7 @@ async def ranking(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 @send_action(ChatAction.TYPING)
 async def today(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text('https://widget.matchscorerlive.com/screen/oopbyday/FIP-2023-3603/8?t=tol')
+    await update.message.reply_text('El proximo torneo Premier Padel comienza el 30 de Octubre en Egipto\nhttps://www.padelfip.com/events/newgiza-premier-padel-p1-2023/')
 
 
 app = ApplicationBuilder().token(os.environ['BOT_TOKEN']).build()
